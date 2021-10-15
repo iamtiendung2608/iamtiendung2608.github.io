@@ -1,0 +1,10 @@
+Intel Core i5 SSD 256GB 16 Intel UHD Graphics 14Inch FullHD Dell 1100
+AMD Ryzen 3500U SSD 512GB 8 AMD Radeon Vega 15.6Inch FullHD Dell 1050
+Intel Core i7 SSD 512GB 8 NVIDIA GEFORCE GTX 15.6Inch diagonalFHD Dell 1039
+Intel Core i7 SSD 1TB 16 Intel IrisXE Graphics 13.3Inch FHD Hp 1950
+Intel Core i5 SSD 512GB 8 Intel IrisXE Graphics 14Inch FHD Hp 1420
+Intel Core i7 512GB SSD 16 NVIDIA GeForce RTX 16.1Inch FHD Hp 1500
+Core I5 1135G7 512Gb SSD 8 Intel IrisXE Graphics 14.0Inch FullHD Lenovo 1439
+AMD Ryzen R5-5600H 512Gb SSD 8 AMD Radeon Graphics 16inch IPS Lenovo 1350
+Intel Core i7 1TB M.2 32 NVIDIA GeForce RTX 16inch QHD+ MSI 3000
+Intel Core i7 1TB NVMe 16 NVIDIA GeForce RTX 15.6inch FHD MSI 2900

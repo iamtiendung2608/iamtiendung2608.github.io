@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:object="${laptop}">
+	<img th:src="@{${'/images'+laptop.Source+'.jpg'}}">
+		<div th:text="${laptop.Name}"></div>
+		<div th:text="${laptop.Core}"></div>
+		<div th:text="${laptop.Ram}"></div>
+		<div th:text="${laptop.VGA}"></div>
+		<div th:text="${laptop.Price}"></div>
+		<form method="post" th:action="@{/laptop/{id}(id=${laptop.ID})}">
+			<input type="submit" value="submit">
+		</form>
+		<a th:href="@{/laptop/}">Go Back!</a>
+	</div>
+</body>
+</html>

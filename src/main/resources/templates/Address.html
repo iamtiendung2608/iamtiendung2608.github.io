@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="post" th:action="@{/address}" th:object="${address}">
+		Country: <input type="text" th:field="${address.Country}" ><br/>
+			<span th:if="*{#fields.hasErrors('Country')}" th:errors="*{Country}"></span><br/>
+		Province: <input type="text" th:field="${address.Province}"><br/>
+			<span th:if="*{#fields.hasErrors('Province')}" th:errors="*{Province}"></span><br/>
+		City: <input type="text" th:field="${address.City}"><br/>
+			<span th:if="*{#fields.hasErrors('City')}" th:errors="*{City}"></span><br/>
+		Street: <input type="text" th:field="${address.Street}"><br/>
+			<span th:if="*{#fields.hasErrors('Street')}" th:errors="*{Street}"></span><br/>
+		Home Number: <input type="text" th:field="${address.HomeNumber}" ><br/>
+			<span th:if="*{#fields.hasErrors('HomeNumber')}" th:errors="*{HomeNumber}"></span><br/>
+			<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
+
+
+
+

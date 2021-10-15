@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/css/regist.css}">
+  
+</head>
+
+<body>
+  <img th:src="@{/images/background/alow.jpg}" alt="">
+  <form th:action="@{/registration}" th:object="${user}" method="post">
+    <div class="container">
+      <h1>Register</h1>
+      <input th:field="${user.username}" type="text" placeholder="User Name"  id="email" required>
+      <span th:if="*{#fields.hasErrors('username')}" th:errors="*{username}"></span>
+
+      <input th:field="${user.password}" type="password" placeholder="Password"  id="psw" required>
+      <span th:if="*{#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
+      <input th:field="${user.Name}" type="text" placeholder="Name" required>
+      <span th:if="*{#fields.hasErrors('Name')}" th:errors="*{Name}"></span>
+
+      <input th:field="${user.Age}" type="number" placeholder="Age" required>
+      <span th:if="*{#fields.hasErrors('Age')}" th:errors="*{Age}"></span>
+      
+      <p>All ready have account <a th:href="@{/login}">click here!</a>.</p>
+      <button type="submit" class="registerbtn">Register</button>
+    </div>
+
+  </form>
+
+</body>
+
+</html>

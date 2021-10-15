@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:each="Screen : ${screen}">
+		<img th:src="@{${'/images'+Screen.Source+'.jpg'}}">		
+	<a th:href="@{/screen/{id}(id=${Screen.ID})}"><strong th:text="${Screen.Name}"></strong></a>
+	</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a th:href="@{/screen}">Super Screen</a>
+	<div th:each="brand : ${Brand}">
+		<img th:src="@{${'/images'+brand.Source+'.jpg'}}">
+		<div th:text="${brand.Name}"></div>
+	</div>
+	<a th:href="@{/laptop}">Super Laptop</a>
+</body>
+</html>
