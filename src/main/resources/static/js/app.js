@@ -6,3 +6,7 @@ function myFunction() {
     x.type = "password";
   }
 }
+
+function ClickAdd(name) {
+  alert("Add "+ name +" to cart!");
+}

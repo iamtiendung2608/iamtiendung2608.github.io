@@ -9,7 +9,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
+@Entity(name="source")
 @Inheritance(strategy=InheritanceType.JOINED)
 public class source {
 	@Id
