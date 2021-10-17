@@ -31,7 +31,6 @@ public class Brand extends source {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 		return ItemsList;
 	}
 }

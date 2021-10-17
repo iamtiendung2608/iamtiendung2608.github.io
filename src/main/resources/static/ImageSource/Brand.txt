@@ -1,8 +1,8 @@
-Dell /Brand/Dell
-Hp /Brand/hp
-Lenovo /Brand/lenovo
-LG /Brand/LG
-MSI /Brand/msi
+Dell /Brand/DellLogo
+Hp /Brand/HPLogo
+Lenovo /Brand/LenovoLogo
+LG /Brand/LGLogo
+MSI /Brand/MSILogo
 MSI /screen/msi_curv_27Inch
 HP /screen/HP_V19_18.5Inch
 Lenovo /screen/Lenovo_BCKA_23.8Inch

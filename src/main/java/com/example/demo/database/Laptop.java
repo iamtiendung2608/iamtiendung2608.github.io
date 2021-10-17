@@ -8,6 +8,10 @@ import java.util.List;
 
 import javax.persistence.Entity;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.Service.LaptopService;
+
 
 
 
