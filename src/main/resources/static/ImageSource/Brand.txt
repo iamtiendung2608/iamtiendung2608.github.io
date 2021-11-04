@@ -1,10 +1,5 @@
 Dell /Brand/DellLogo
 Hp /Brand/HPLogo
-Lenovo /Brand/LenovoLogo
+Lenovo /Brand/LenovoIcons
 LG /Brand/LGLogo
 MSI /Brand/MSILogo
-MSI /screen/msi_curv_27Inch
-HP /screen/HP_V19_18.5Inch
-Lenovo /screen/Lenovo_BCKA_23.8Inch
-LG /screen/LG_Ultra_Scree
-DELL /screen/DELL_42MU

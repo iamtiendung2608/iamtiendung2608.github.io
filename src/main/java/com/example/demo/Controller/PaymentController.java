@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,15 +21,14 @@ public class PaymentController {
 	@Autowired
 	PaymentRepo repo;
 	@RequestMapping("/payment")
-	public String payment(@ModelAttribute("payment") Payment payment) {
+	public String payment(@ModelAttribute("payment") Payment payment,
+			Model model) {
 		user = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Payment K=repo.getPaymentByUserID(user.getId());
 		if(K!=null) {
-			System.out.println(K);
-			K=null;
+			model.addAttribute("payment", K);
 			return "payment-have";
 		}
-		System.out.println("Don't payment yet");
 		return "payment";
 	}
 	@PostMapping("/payment")
@@ -36,11 +36,14 @@ public class PaymentController {
 			,BindingResult BR) {
 		if(BR.hasErrors())
 			return "payment";
-		user = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		user = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		payment.setUser(user);
 		repo.save(payment);
 		return "redirect:/shop";
+	}
+	@RequestMapping("/change/payment")
+	public String ChangePayment() {
+		repo.DeletePaymentByUserID(user.getId());
+		return "redirect:/payment";
 	}
 }
 

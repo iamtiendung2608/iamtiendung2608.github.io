@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/CartCss.css}">
+</head>
+<body>
+	<table id="customers">
+		<tr>
+		    <th>Name</th>
+		    <th>Price</th>
+		    <th>Buy</th>
+		    <th>Total</th>
+  		</tr>
+		<tr th:each="cart : ${Cart}">
+		    <td th:text="${cart.Name}"></td>
+		    <td th:text="${cart.Price}"></td>
+		    <td th:text="${cart.Builed}"></td>
+		    <td th:text="${cart.Total}"></td>
+  		</tr>
+	</table>
+</body>
+</html>

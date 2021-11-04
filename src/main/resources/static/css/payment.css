@@ -1,11 +1,11 @@
 @charset "UTF-8";
-body {
-  font-family: Arial;
-  font-size: 17px;
-  padding: 8px;
-  padding-top: 80px;
-}
 
+.HeaderBody{
+	font-family: Arial;
+  font-size: 17px;
+  padding: 50px;
+  padding-top: 200px;
+}
 * {
   box-sizing: border-box;
 }
@@ -87,9 +87,7 @@ label {
   background-color: #45a049;
 }
 
-a {
-  color: #2196F3;
-}
+
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
@@ -105,4 +103,24 @@ a {
 span {
   color: red;
   font-size: 15px;
+}
+.about_a{
+  display:grid;
+  height: 60px;
+  width:250px;
+  background:#eb4d4b;
+  place-items: center;
+  font-family: sans-serif;
+  color:#ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing:3px;
+  font-size: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 0;
+  margin:auto;
+}
+.about_a:hover{ 
+  background:#ff7979;
 }

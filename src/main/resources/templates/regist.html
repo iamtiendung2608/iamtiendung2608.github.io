@@ -4,7 +4,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" th:href="@{/css/regist.css}">
-  
+  <script type="text/javascript" th:src="@{/js/app.js}"></script>
 </head>
 
 <body>
@@ -15,9 +15,9 @@
       <input th:field="${user.username}" type="text" placeholder="User Name"  id="email" required>
       <span th:if="*{#fields.hasErrors('username')}" th:errors="*{username}"></span>
 
-      <input th:field="${user.password}" type="password" placeholder="Password"  id="psw" required>
+      <input th:field="${user.password}" type="password" placeholder="Password"  id="myInput" required>
       <span th:if="*{#fields.hasErrors('password')}" th:errors="*{password}"></span>
-
+		<input type="checkbox" th:onclick="myFunction()">Show Password
       <input th:field="${user.Name}" type="text" placeholder="Name" required>
       <span th:if="*{#fields.hasErrors('Name')}" th:errors="*{Name}"></span>
 

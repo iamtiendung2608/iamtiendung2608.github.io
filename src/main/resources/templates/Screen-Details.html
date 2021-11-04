@@ -8,11 +8,80 @@
     <link rel="stylesheet" th:href="@{/css/Details.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <script th:src="@{/js/app.js}"></script>
+<link rel="stylesheet" th:href="@{/css/HomePage.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+	<script src="https://use.fontawesome.com/ad3c6e2629.js"></script>
   </head>
   <body>
-    
+  <div class="wrapper">
+    <nav>
+      <input type="checkbox" id="show-search">
+      <input type="checkbox" id="show-menu">
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <div class="content">
+      <div class="logo"><a th:href="@{/shop}">Tien Dung Gear</a></div>
+        <ul class="links">
+          <li><a th:href="@{/shop}">Home</a></li>
+          <li>
+            <a th:href="@{/screen}" class="desktop-link">Screen</a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+	              <li><a th:href="@{/find/Dell}">DELL</a></li>
+	              <li><a th:href="@{/find/Hp}">Hp</a></li>
+	              <li><a th:href="@{/find/Lenovo}">Lenovo</a></li>
+	              <li><a th:href="@{/find/MSI}">MSI</a></li>
+            </ul>
+          </li>
+          <li>
+            <a th:href="@{/laptop}" class="desktop-link">Laptop</a>
+            <input type="checkbox" id="show-services">
+            <label for="show-services">Services</label>
+            <ul>
+	              <li><a th:href="@{/find/Dell}">DELL</a></li>
+	              <li><a th:href="@{/find/Hp}">Hp</a></li>
+	              <li><a th:href="@{/find/Lenovo}">Lenovo</a></li>
+	              <li><a th:href="@{/find/MSI}">MSI</a></li>
+            </ul>
+          </li>
+          <li>
+            <a th:href="@{/chair}" class="desktop-link">Gaming Chair</a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+              <li><a th:href="@{/find/Corsair}">Corsair</a></li>
+		              <li><a th:href="@{/find/Courgar}">Courgar</a></li>
+		              <li><a th:href="@{/find/Raiser}">Raiser</a></li>
+		              <li><a th:href="@{/find/Asus}">Asus</a></li>
+		              <li><a th:href="@{/find/KingSeries}">KingSeries</a></li>
+		              <li><a th:href="@{/find/AKRacing}">AKRacing</a></li>
+		              <li><a th:href="@{/find/Warrior}">Warrior</a></li>
+            </ul>
+          </li>
+          <li>
+            <a  class="desktop-link"><i style=" color: #EEEEEE" class="fa fa-user-o" aria-hidden="true"></i></a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+               <li><a th:href="@{/address}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-address-book" aria-hidden="true"></i>Address</a></li>
+		      <li><a th:href="@{/payment}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-cc-visa" aria-hidden="true"></i>Payment</a></li>
+		      <li><a th:href="@{/cart}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-cart-arrow-down" aria-hidden="true"></i>Cart</a></li>
+		      <li><a th:href="@{/logout}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-sign-in" aria-hidden="true"></i>Log out</a></li>
+            </ul>
+          </li>
+          <li>
+        </ul>
+      </div>
+      <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+      <form action="#" class="search-box">
+        <input type="text" placeholder="Type Something to Search..." required>
+        <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+      </form>
+    </nav>
+  </div>
+    <div class="about_body">
     <div th:object="${screen}" class = "card-wrapper">
-      <div class = "card">
+      <div class = "card">	
         <!-- card left -->
         <div class = "product-imgs">
           <div class = "img-display">
@@ -24,7 +93,7 @@
         <!-- card right -->
         <div class = "product-content">
           <h2 style="text-align:center;" class = "product-title" th:text="${screen.Name}"></h2>
-          <a href = "#" class = "product-link">visit nike store</a>
+          <a th:href = "@{/find/{brand}(brand=${screen.Type})}" class = "product-link">visit Original store</a>
           <div class = "product-rating">
             <i class = "fas fa-star"></i>
             <i class = "fas fa-star"></i>
@@ -51,7 +120,7 @@
 
           <div class = "purchase-info">
             <form method="post" th:action="@{/screen/{id}(id=${screen.ID})}">
-			<input   th:onload="'javascript:alert(\'' + ${screen.Name} + '\');'" class="btn" type="submit" value="Add">
+			<input th:onclick="Confirm()" class="btn" type="submit" value="Add">
 		</form>
           <a th:href="@{/screen/}"><button  class="btn" type = "button" >Go Back!</button></a>
           </div>
@@ -59,5 +128,6 @@
         </div>
       </div>
     </div>
+  </div>
   </body>
 </html>

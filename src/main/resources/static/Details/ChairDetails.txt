@@ -1,0 +1,12 @@
+90 180 85 Corsair 250
+90 180 85 Corsair 270
+90 180 85 Corsair 280
+90 180 83 Cougar 300
+92 170 83 Cougar 500
+90 139 88 Raiser 700
+90 139 88 Asus 700
+90 135 86 KingSeries 700
+90 180 83 AKRacing 250
+90 160 83 Warrior 200
+90 180 83 Warrior 300
+90 170 83 Warrior 500

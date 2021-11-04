@@ -1,26 +1,120 @@
 <!DOCTYPE html>
-<html xmlns:th="www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<title>Address</title>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home Page</title>
+  <link rel="stylesheet" th:href="@{/css/HomePage.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" th:href="@{/css/payment.css}">
+  <script src="https://use.fontawesome.com/ad3c6e2629.js"></script>
 </head>
+
 <body>
-	<form method="post" th:action="@{/address}" th:object="${address}">
-		Country: <input type="text" th:field="${address.Country}" ><br/>
-			<span th:if="*{#fields.hasErrors('Country')}" th:errors="*{Country}"></span><br/>
-		Province: <input type="text" th:field="${address.Province}"><br/>
-			<span th:if="*{#fields.hasErrors('Province')}" th:errors="*{Province}"></span><br/>
-		City: <input type="text" th:field="${address.City}"><br/>
-			<span th:if="*{#fields.hasErrors('City')}" th:errors="*{City}"></span><br/>
-		Street: <input type="text" th:field="${address.Street}"><br/>
-			<span th:if="*{#fields.hasErrors('Street')}" th:errors="*{Street}"></span><br/>
-		Home Number: <input type="text" th:field="${address.HomeNumber}" ><br/>
-			<span th:if="*{#fields.hasErrors('HomeNumber')}" th:errors="*{HomeNumber}"></span><br/>
-			<input type="submit" value="Submit">
-	</form>
+<div class="wrapper">
+    <nav>
+      <input type="checkbox" id="show-search">
+      <input type="checkbox" id="show-menu">
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <div class="content">
+      <div class="logo"><a th:href="@{/shop}">Tien Dung Gear</a></div>
+        <ul class="links">
+          <li><a th:href="@{/shop}">Home</a></li>
+          <li>
+            <a th:href="@{/screen}" class="desktop-link">Screen</a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+	              <li><a th:href="@{/find/Dell}">DELL</a></li>
+	              <li><a th:href="@{/find/Hp}">Hp</a></li>
+	              <li><a th:href="@{/find/Lenovo}">Lenovo</a></li>
+	              <li><a th:href="@{/find/MSI}">MSI</a></li>
+            </ul>
+          </li>
+          <li>
+            <a th:href="@{/laptop}" class="desktop-link">Laptop</a>
+            <input type="checkbox" id="show-services">
+            <label for="show-services">Services</label>
+            <ul>
+	              <li><a th:href="@{/find/Dell}">DELL</a></li>
+	              <li><a th:href="@{/find/Hp}">Hp</a></li>
+	              <li><a th:href="@{/find/Lenovo}">Lenovo</a></li>
+	              <li><a th:href="@{/find/MSI}">MSI</a></li>
+            </ul>
+          </li>
+          <li>
+            <a th:href="@{/chair}" class="desktop-link">Gaming Chair</a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+              <li><a th:href="@{/find/Corsair}">Corsair</a></li>
+		              <li><a th:href="@{/find/Courgar}">Courgar</a></li>
+		              <li><a th:href="@{/find/Raiser}">Raiser</a></li>
+		              <li><a th:href="@{/find/Asus}">Asus</a></li>
+		              <li><a th:href="@{/find/KingSeries}">KingSeries</a></li>
+		              <li><a th:href="@{/find/AKRacing}">AKRacing</a></li>
+		              <li><a th:href="@{/find/Warrior}">Warrior</a></li>
+            </ul>
+          </li>
+          <li>
+            <a  class="desktop-link"><i style=" color: #EEEEEE" class="fa fa-user-o" aria-hidden="true"></i></a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+              <li><a th:href="@{/address}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-address-book" aria-hidden="true"></i>Address</a></li>
+		      <li><a th:href="@{/payment}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-cc-visa" aria-hidden="true"></i>Payment</a></li>
+		      <li><a th:href="@{/cart}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-cart-arrow-down" aria-hidden="true"></i>Cart</a></li>
+		      <li><a th:href="@{/logout}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-sign-out" aria-hidden="true"></i>Log out</a></li>
+            </ul>
+          </li>
+          <li>
+        </ul>
+      </div>
+      <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+      <form action="#" class="search-box">
+        <input type="text" placeholder="Type Something to Search..." required>
+        <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+      </form>
+    </nav>
+  </div>
+  
+  
+  <div class="HeaderBody">
+ 	<div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form th:action="@{/address}" method="post" th:object="${address}">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+	            <label for="ccnum">Country</label>
+	            	<input type="text" id="ccnum" th:field="${address.Country}" placeholder="VietNam">
+	            <span th:if="*{#fields.hasErrors('Country')}" th:errors="*{Country}"></span>
+	            
+	            <label for="expmonth">Province</label>
+	            	<input type="text" id="expmonth" th:field="${address.Province}" placeholder="Dak Lak">
+	            <span th:if="*{#fields.hasErrors('Province')}" th:errors="*{Province}"></span>
+	            
+	            <label for="expmonth">City</label>
+	            	<input type="text" id="expmonth" th:field="${address.City}" placeholder="Ha Noi">
+	            <span th:if="*{#fields.hasErrors('City')}" th:errors="*{City}"></span>
+	      		
+	      		<label for="expmonth">Street</label>
+	            	<input type="text" id="expmonth" th:field="${address.Street}" placeholder="Le Hong Phong">
+	            <span th:if="*{#fields.hasErrors('Street')}" th:errors="*{Street}"></span>
+	      		
+	      		<label for="expmonth">Home Number</label>
+	            	<input type="text" id="expmonth" th:field="${address.HomeNumber}" placeholder="123">
+	            <span th:if="*{#fields.hasErrors('HomeNumber')}" th:errors="*{HomeNumber}"></span>
+	      			<input type="submit" value="Next step" class="btn">
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  </div>
 </body>
+
 </html>
-
-
-
-

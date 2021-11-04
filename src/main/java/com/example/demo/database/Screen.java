@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,7 +19,8 @@ import com.example.demo.Service.ScreenRepo;
  * @author Admin
  *
  */
-@Entity
+@Entity()
+@Table(name="Screen")
 public class Screen extends source {
 	private int size;
 	

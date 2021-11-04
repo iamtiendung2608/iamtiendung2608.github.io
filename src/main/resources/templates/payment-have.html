@@ -1,10 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home Page</title>
+  <link rel="stylesheet" th:href="@{/css/HomePage.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel="stylesheet" th:href="@{/css/payment.css}">
+  <script src="https://use.fontawesome.com/ad3c6e2629.js"></script>
 </head>
 <body>
-	Account have already have payment
+<div class="wrapper">
+    <nav>
+      <input type="checkbox" id="show-search">
+      <input type="checkbox" id="show-menu">
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <div class="content">
+      <div class="logo"><a th:href="@{/shop}">Tien Dung Gear</a></div>
+        <ul class="links">
+          <li><a th:href="@{/shop}">Home</a></li>
+          <li>
+            <a th:href="@{/screen}" class="desktop-link">Screen</a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+	              <li><a th:href="@{/find/Dell}">DELL</a></li>
+	              <li><a th:href="@{/find/Hp}">Hp</a></li>
+	              <li><a th:href="@{/find/Lenovo}">Lenovo</a></li>
+	              <li><a th:href="@{/find/MSI}">MSI</a></li>
+            </ul>
+          </li>
+          <li>
+            <a th:href="@{/laptop}" class="desktop-link">Laptop</a>
+            <input type="checkbox" id="show-services">
+            <label for="show-services">Services</label>
+            <ul>
+	              <li><a th:href="@{/find/Dell}">DELL</a></li>
+	              <li><a th:href="@{/find/Hp}">Hp</a></li>
+	              <li><a th:href="@{/find/Lenovo}">Lenovo</a></li>
+	              <li><a th:href="@{/find/MSI}">MSI</a></li>
+            </ul>
+          </li>
+          <li>
+            <a th:href="@{/chair}" class="desktop-link">Gaming Chair</a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+              <li><a th:href="@{/find/Corsair}">Corsair</a></li>
+		              <li><a th:href="@{/find/Courgar}">Courgar</a></li>
+		              <li><a th:href="@{/find/Raiser}">Raiser</a></li>
+		              <li><a th:href="@{/find/Asus}">Asus</a></li>
+		              <li><a th:href="@{/find/KingSeries}">KingSeries</a></li>
+		              <li><a th:href="@{/find/AKRacing}">AKRacing</a></li>
+		              <li><a th:href="@{/find/Warrior}">Warrior</a></li>
+            </ul>
+          </li>
+          <li>
+            <a  class="desktop-link"><i style=" color: #EEEEEE" class="fa fa-user-o" aria-hidden="true"></i></a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+              <li><a th:href="@{/address}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-address-book" aria-hidden="true"></i>Address</a></li>
+		      <li><a th:href="@{/payment}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-cc-visa" aria-hidden="true"></i>Payment</a></li>
+		      <li><a th:href="@{/cart}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-cart-arrow-down" aria-hidden="true"></i>Cart</a></li>
+		      <li><a th:href="@{/logout}"><i style="margin-right: 0.5em; color: #EEEEEE" class="fa fa-sign-out" aria-hidden="true"></i>Log out</a></li>
+            </ul>
+          </li>
+          <li>
+        </ul>
+      </div>
+      <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+      <form action="#" class="search-box">
+        <input type="text" placeholder="Type Something to Search..." required>
+        <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+      </form>
+    </nav>
+  </div>
+
+
+
+<div class="HeaderBody">
+	<div class="row">
+    <div class="col-75">
+      <div class="container" th:object="${payment}">
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="ccnum">Credit card number</label>
+            <input style="color:red; font-weight:bold" type="text" id="ccnum" th:value="${payment.CardNumber}" readonly >
+          
+            <label for="expmonth">Phone Number</label>
+            <input style="color:red; font-weight:bold" type="text" id="expmonth" th:value="${payment.PhoneNumber}" readonly>
+            
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input style="color:red; font-weight:bold"  type="number" id="expyear" th:value="${payment.ccYear}" readonly >
+                </div>
+              <div class="col-50">
+                <label for="cvv">Exp Month</label>
+                <input style="color:red; font-weight:bold" type="text" id="cvv" th:value="${payment.ccMonth}" readonly>
+                </div>
+            </div>
+            <label for="expmonth">Zip Code</label>
+            <input style="color:red; font-weight:bold" type="text" id="expmonth" th:value="${payment.ZipCode}" readonly>
+          	<a class="about_a" th:href="@{/change/payment}">Change Information</a>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
 </body>
 </html>

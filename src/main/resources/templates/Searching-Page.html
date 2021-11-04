@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/Product.css}">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+		<div class="products">
+        <div class="container">
+
+            <div class="product-items">
+                <!-- single product -->
+	<form th:each="brand : ${Brand}">
+                <div class="product">
+                    <div class="product-content">
+                        <div class="product-img">
+                            <img th:src="@{${'/images'+brand.Source+'.jpg'}}" alt="product image">
+                        </div>
+                        <div class="product-btns">
+                            <button type="button" class="btn-cart"> add to cart
+                                <span><i class="fas fa-plus"></i></span>
+                            </button>
+                            <button type="button" class="btn-buy"> buy now
+                                <span><i class="fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-info-top">
+                            <h2 class="sm-title">lifestyle</h2>
+                            <div class="rating">
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="far fa-star"></i></span>
+                            </div>
+                        </div>
+                        <a href="#" class="product-name"><strong th:text="${brand.Name}"></strong></a>
+                        <p class="product-price"></p>
+                        <p class="product-price" th:text="${brand.Price}+' $'"></p>
+                    </div>
+                    <div class="off-info">
+                        <h2 class="sm-title">25% off</h2>
+                    </div>
+                </div>
+	</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

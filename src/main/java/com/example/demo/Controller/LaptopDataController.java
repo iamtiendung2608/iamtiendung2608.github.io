@@ -1,6 +1,6 @@
 package com.example.demo.Controller;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.Service.LaptopService;
-import com.example.demo.Service.ListBuyRepo;
+
 import com.example.demo.Service.ListBuyService;
 import com.example.demo.UserAccount.AppUser;
 import com.example.demo.database.Laptop;
-import com.example.demo.database.ListBuy;
+
 
 @Controller
 public class LaptopDataController {
-	List<Laptop>allLaptop=Laptop.getItemsSource();
 	@Autowired
 	private LaptopService lapService;
 	@Autowired
@@ -27,8 +26,8 @@ public class LaptopDataController {
 	private AppUser user;
 	@RequestMapping("/laptop")
 	public String LaptopHome(Model model) {
-		lapService.SaveListLaptop(allLaptop);
-		model.addAttribute("laptop", allLaptop);
+		//lapService.SaveListLaptop(allLaptop);
+		model.addAttribute("laptop", lapService.getFromService());
 		return "Laptop-Items";
 	}
 	@RequestMapping("/laptop/{id}")
@@ -37,12 +36,11 @@ public class LaptopDataController {
 		return "Laptop-Details";
 	}
 	@PostMapping("/laptop/{id}")
-	public String AddLaptop(@PathVariable("id")int id,Model model) {
+	public String AddLaptop(@PathVariable("id")int id) {
 		user = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Laptop mylap=lapService.getLaptop(id);
-		ListService.saveToCart(user.getId(), mylap);
-		model.addAttribute("laptop", mylap);
-		return "Laptop-Details";
+		ListService.saveToCart(user.getId(), mylap,id);
+		return "redirect:/laptop/{id}";
 	}
 	
 }

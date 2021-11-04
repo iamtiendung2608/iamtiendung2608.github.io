@@ -1,6 +1,6 @@
 package com.example.demo.Controller;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,11 +25,9 @@ public class ScreenDataController {
 	private ListBuyService ListService;
 	private AppUser user;
 
-	List<Screen>allScreen=Screen.getItemsSource();
 	@RequestMapping("/screen")
 	public String ScreenHome(Model model) {
-		repo.SaveListScreen(allScreen);
-		model.addAttribute("screen", allScreen);
+		model.addAttribute("screen", repo.getFromService());
 		return "Screen-Items";
 	}
 	@RequestMapping("/screen/{id}")
@@ -38,12 +36,11 @@ public class ScreenDataController {
 		return "Screen-Details";
 	}
 	@PostMapping("/screen/{id}")
-	public String AddScreen(@PathVariable("id")int id,Model model) {
+	public String AddScreen(@PathVariable("id")int id) {
 		user= (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Screen screen=repo.getScreen(id);
-		ListService.saveToCart(user.getId(), screen);
-		model.addAttribute("screen", screen);
-		return "Screen-Details";
+		ListService.saveToCart(user.getId(), screen,id);
+		return "redirect:/screen/{id}";
 	}
 }
 

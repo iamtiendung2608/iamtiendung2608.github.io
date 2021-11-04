@@ -6,17 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
-@Entity(name="source")
+@Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public class source {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int ID;
-	private String Name;
-	private String Source;
+	public String Name;
+	public String Source;
 	private String Type;
 	private long Price;
 	private int Builed;
@@ -76,6 +74,12 @@ public class source {
 	}
 	public void setTotal() {
 		Total = this.Builed*this.Price;
+	}
+
+	@Override
+	public String toString() {
+		return "source [ID=" + ID + ", Name=" + Name + ", Source=" + Source + ", Type=" + Type + ", Price=" + Price
+				+ ", Builed=" + Builed + ", Total=" + Total + "]";
 	}
 	
 

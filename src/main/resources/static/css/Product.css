@@ -12,8 +12,9 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
+.about_body{
     font-family: 'Quicksand', sans-serif;
+    padding-top: 50px;
 }
 
 /* Utility stylings */

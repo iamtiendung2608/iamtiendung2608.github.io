@@ -7,15 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.example.demo.Service.LaptopService;
+import javax.persistence.Table;
 
 
-
-
-@Entity
+@Entity()
+@Table(name="Laptop")
 public class Laptop extends source {
 	private String Core;
 	private String CPU;

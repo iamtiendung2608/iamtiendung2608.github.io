@@ -6,9 +6,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
 
-@Entity
 public class Brand extends source {
 	public Brand(String name, String source) {
 		super(name, source);
